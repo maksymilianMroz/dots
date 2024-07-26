@@ -1,0 +1,51 @@
+/* src/components/EndingLetter/EndingLetter.css */
+.ending-letter {
+  font-family: "Times New Roman", Times, serif;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #000;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.ending-letter .header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.ending-letter .header img {
+  max-width: 100px;
+  height: auto;
+}
+
+.ending-letter .title {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.ending-letter .subtitle {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.ending-letter .content {
+  text-align: justify;
+  font-size: 16px;
+}
+
+.ending-letter .content p {
+  margin: 10px 0;
+}
+
+.ending-letter .top-border {
+  border-top: 2px solid #000;
+  margin: 10px 0;
+}
+
+.ending-letter .bottom-border {
+  border-bottom: 2px solid #000;
+  margin: 10px 0;
+}
