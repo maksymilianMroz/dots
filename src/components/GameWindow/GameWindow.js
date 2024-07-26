@@ -33,6 +33,8 @@ const GameWindow = () => {
   const [modalContent, setModalContent] = useState("");
   const [modalType, setModalType] = useState("confirm");
   const [flippedCards, setFlippedCards] = useState([]);
+  const [disabledCards, setDisabledCards] = useState([]);
+  const [correctCard, setCorrectCard] = useState(null);
   const [roundCompleted, setRoundCompleted] = useState(false);
 
   const handleCardClick = (boy) => {
@@ -48,12 +50,15 @@ const GameWindow = () => {
       if (selectedCard.name === "Marcin") {
         setScore(score + (3 - attempts));
         setRoundCompleted(true);
-        setFlippedCards([...flippedCards, selectedCard.id]); // Dodajemy Marcina do flippedCards
+        setFlippedCards([...flippedCards, selectedCard.id]);
+        setDisabledCards(boys.map((b) => b.id)); // Disable all cards
+        setCorrectCard(selectedCard.id); // Set correct card to Marcin's ID
       } else {
         setAttempts(attempts + 1);
         setModalType("error");
         setModalContent("No chyba jednak musisz spróbować jeszcze raz");
         setFlippedCards([...flippedCards, selectedCard.id]);
+        setDisabledCards([...disabledCards, selectedCard.id]);
         setShowModal(true);
       }
     } else if (modalType === "error") {
@@ -66,6 +71,8 @@ const GameWindow = () => {
     setAttempts(0);
     setSelectedCard(null);
     setFlippedCards([]);
+    setDisabledCards([]);
+    setCorrectCard(null);
     setRoundCompleted(false);
   };
 
@@ -84,6 +91,8 @@ const GameWindow = () => {
             currentRound={currentRound}
             onClick={handleCardClick}
             isFlipped={flippedCards.includes(boy.id)}
+            isDisabled={disabledCards.includes(boy.id) || roundCompleted}
+            isCorrect={correctCard === boy.id}
           />
         ))}
       </div>

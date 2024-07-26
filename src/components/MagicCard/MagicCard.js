@@ -1,9 +1,17 @@
 import React from "react";
 import "./MagicCard.css";
 
-const MagicCard = ({ boy, bodyPart, currentRound, onClick, isFlipped }) => {
+const MagicCard = ({
+  boy,
+  bodyPart,
+  currentRound,
+  onClick,
+  isFlipped,
+  isDisabled,
+  isCorrect,
+}) => {
   const handleClick = () => {
-    if (!isFlipped) {
+    if (!isFlipped && !isDisabled) {
       onClick(boy);
     }
   };
@@ -14,7 +22,9 @@ const MagicCard = ({ boy, bodyPart, currentRound, onClick, isFlipped }) => {
 
   return (
     <div
-      className={`magic-card ${isFlipped ? "flipped" : ""}`}
+      className={`magic-card ${isFlipped ? "flipped" : ""} ${
+        isDisabled ? "disabled" : ""
+      } ${isCorrect ? "correct" : ""}`}
       onClick={handleClick}
     >
       <img src={imagePath} alt={`${bodyPart} ${boy.name}`} />
