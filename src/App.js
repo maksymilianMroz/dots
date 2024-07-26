@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+// src/components/App/App.js
+import React, { useState } from "react";
+import Curtains from "./components/Curtains/Curtains";
+import WelcomeLetter from "./components/WelcomeLetter/WelcomeLetter";
+import GameWindow from "./components/GameWindow/GameWindow"; // Upewnij się, że masz ten komponent
 
-function App() {
+const App = () => {
+  const [gameStarted, setGameStarted] = useState(false);
+
+  const startGame = () => {
+    setGameStarted(true);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Curtains>
+      {gameStarted ? <GameWindow /> : <WelcomeLetter onStartGame={startGame} />}
+    </Curtains>
   );
-}
+};
 
 export default App;

@@ -1,0 +1,71 @@
+/* src/components/WelcomeLetter/WelcomeLetter.css */
+.welcome-letter {
+  font-family: "Times New Roman", Times, serif;
+  max-width: 400px; /* Zmniejszona szerokość */
+  min-height: 800px; /* Dodana minimalna wysokość */
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #000;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-letter .header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.welcome-letter .header img {
+  max-width: 100px;
+  height: auto;
+}
+
+.welcome-letter .title {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.welcome-letter .subtitle {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.welcome-letter .content {
+  text-align: justify;
+  font-size: 16px;
+}
+
+.welcome-letter .content p {
+  margin: 10px 0;
+}
+
+.welcome-letter .top-border {
+  border-top: 2px solid #000;
+  margin: 10px 0;
+}
+
+.welcome-letter .bottom-border {
+  border-bottom: 2px solid #000;
+  margin: 10px 0;
+}
+
+.start-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 20px 0 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #000;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.start-button:hover {
+  background-color: #555;
+}

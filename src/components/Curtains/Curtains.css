@@ -1,0 +1,48 @@
+/* src/components/Curtains/Curtains.css */
+
+/* src/components/Curtains/Curtains.css */
+.curtain-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("./background.jpg");
+  background-size: cover;
+  z-index: 999; /* Upewnij się, że kontener jest nad tłem */
+}
+
+.curtain {
+  position: absolute;
+  height: 100%;
+  overflow: hidden;
+  transition: transform 1s ease;
+  z-index: 1000; /* Upewnij się, że kurtyny są nad tłem */
+}
+
+.curtain img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.curtain.left {
+  left: 0%;
+}
+
+.curtain.right {
+  right: 0%;
+  transform: scaleX(-1); /* Mirror the image and move to the center */
+}
+
+.children-container {
+  position: relative;
+  z-index: 1001; /* Upewnij się, że dzieci są nad kurtynami */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

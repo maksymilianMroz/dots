@@ -1,0 +1,23 @@
+/* src/components/MagicCard/MagicCard.css */
+.magic-card {
+  border: 2px solid #000;
+  margin: 10px;
+  padding: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  text-align: center; /* Center text under images */
+}
+
+.magic-card:hover {
+  transform: scale(1.1);
+}
+
+.magic-card img {
+  max-width: 100%;
+  max-height: 200px; /* Set max height to 200px */
+  height: auto;
+}
+
+.magic-card div {
+  margin-top: 10px; /* Add some space between the image and text */
+}
