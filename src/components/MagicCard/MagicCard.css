@@ -5,8 +5,8 @@
   padding: 10px;
   cursor: pointer;
   transition: transform 0.3s ease, background-color 0.3s ease;
-  text-align: center; /* Center text under images */
-  width: auto; /* Auto width to fit content */
+  text-align: center;
+  width: auto;
 }
 
 .magic-card:hover {
@@ -15,7 +15,7 @@
 
 .magic-card img {
   max-width: 400px;
-  max-height: 400px; /* Set max height to 400px */
+  max-height: 400px;
   height: auto;
 }
 
@@ -31,4 +31,20 @@
 .magic-card.correct {
   background-color: green;
   cursor: not-allowed;
+}
+
+.magic-card.pulse {
+  animation: pulse-animation 1s infinite;
+}
+
+@keyframes pulse-animation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
 }

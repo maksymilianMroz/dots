@@ -9,6 +9,7 @@ const MagicCard = ({
   isFlipped,
   isDisabled,
   isCorrect,
+  isMarcin,
 }) => {
   const handleClick = () => {
     if (!isFlipped && !isDisabled) {
@@ -24,7 +25,7 @@ const MagicCard = ({
     <div
       className={`magic-card ${isFlipped ? "flipped" : ""} ${
         isDisabled ? "disabled" : ""
-      } ${isCorrect ? "correct" : ""}`}
+      } ${isCorrect ? "correct" : ""} ${isMarcin ? "pulse" : ""}`}
       onClick={handleClick}
     >
       <img src={imagePath} alt={`${bodyPart} ${boy.name}`} />

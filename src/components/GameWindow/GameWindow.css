@@ -1,38 +1,33 @@
 /* src/components/GameWindow/GameWindow.css */
 .game-window {
-  padding: 20px;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .score-board {
-  display: flex;
-  justify-content: space-between;
-  font-size: 24px;
   margin-bottom: 20px;
+  font-size: 24px; /* Increased font size */
 }
 
 .cards-container {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .next-round-button {
   margin-top: 20px;
   padding: 10px 20px;
-  font-size: 18px;
+  font-size: 16px;
   cursor: pointer;
-  border: 2px solid #000;
-  background-color: #fff;
-  transition: background-color 0.3s ease;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
 }
 
-.next-round-button:hover {
-  background-color: #f0f0f0;
-}
-
-.game-over {
-  font-size: 32px;
-  color: red;
-  margin-top: 20px;
+.next-round-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }

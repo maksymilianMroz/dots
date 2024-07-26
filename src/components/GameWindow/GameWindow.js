@@ -88,7 +88,8 @@ const GameWindow = () => {
   const [roundCompleted, setRoundCompleted] = useState(false);
   const [shuffledBoys, setShuffledBoys] = useState([]);
   const [showCards, setShowCards] = useState(true);
-  const [gameEnded, setGameEnded] = useState(false); // Nowy stan do kontrolowania końca gry
+  const [gameEnded, setGameEnded] = useState(false);
+  const [nextRoundButtonVisible, setNextRoundButtonVisible] = useState(false);
 
   useEffect(() => {
     setShuffledBoys(shuffle([...boys]));
@@ -105,11 +106,16 @@ const GameWindow = () => {
     setShowModal(false);
     if (modalType === "confirm" && response === "yes") {
       if (selectedCard.name === "Marcin") {
-        setScore(score + (3 - attempts));
+        const points = attempts < 3 ? 3 - attempts : 0;
+        setScore(score + points);
         setRoundCompleted(true);
-        setFlippedCards([...flippedCards, ...boys.map((b) => b.id)]);
+        setFlippedCards([...flippedCards, selectedCard.id]);
         setDisabledCards(boys.map((b) => b.id));
         setCorrectCard(selectedCard.id);
+        setTimeout(() => {
+          setFlippedCards([...boys.map((b) => b.id)]);
+          setNextRoundButtonVisible(true);
+        }, 1000); // Po 1 sekundzie odsłonięcie wszystkich kart
       } else {
         setAttempts(attempts + 1);
         setModalType("error");
@@ -124,8 +130,9 @@ const GameWindow = () => {
   };
 
   const nextRound = () => {
+    setNextRoundButtonVisible(false);
     if (currentRound >= bodyParts.length) {
-      setGameEnded(true); // Ustawienie stanu końca gry
+      setGameEnded(true);
     } else {
       setShowCards(false);
       setTimeout(() => {
@@ -165,6 +172,7 @@ const GameWindow = () => {
                 isFlipped={flippedCards.includes(boy.id)}
                 isDisabled={disabledCards.includes(boy.id) || roundCompleted}
                 isCorrect={correctCard === boy.id}
+                isMarcin={boy.id === 1 && correctCard === boy.id}
               />
             ) : null
           )}
@@ -176,7 +184,7 @@ const GameWindow = () => {
           onResponse={handleModalResponse}
         />
       )}
-      {roundCompleted && (
+      {nextRoundButtonVisible && roundCompleted && (
         <button className="next-round-button" onClick={nextRound}>
           Przejdź do kolejnej rundy
         </button>
